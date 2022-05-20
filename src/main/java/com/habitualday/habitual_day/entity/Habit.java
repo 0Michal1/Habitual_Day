@@ -26,10 +26,10 @@ public class Habit {
     private String description;
     @ManyToOne
     private Type type;
-    @ManyToMany(mappedBy = "habits")
+    @ManyToMany
     private List<Category> categories;
     @Column(name = "user_counter")
-    private int userCounter;
+    private int userCounter = 0;
     @Column(name = "created_on", updatable = false)
     private LocalDateTime createdOn;
     @Column(name = "updated_on", insertable = false)

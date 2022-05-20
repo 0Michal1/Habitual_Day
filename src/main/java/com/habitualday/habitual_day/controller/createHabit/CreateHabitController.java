@@ -1,6 +1,8 @@
 package com.habitualday.habitual_day.controller.createHabit;
 
+import com.habitualday.habitual_day.service.intefaces.CategoryService;
 import com.habitualday.habitual_day.service.intefaces.HabitService;
+import com.habitualday.habitual_day.service.intefaces.TypeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,11 +18,14 @@ import javax.validation.Valid;
 @RequestMapping("/create-habit")
 public class CreateHabitController {
       private final HabitService habitService;
-
+      private final CategoryService categoryService;
+      private final TypeService typeService;
 
       @GetMapping
       public String prepareView(Model model){
             model.addAttribute("createHabitModel", new CreateHabitModel());
+            model.addAttribute("categories", categoryService.findAllCategories());
+            model.addAttribute("types", typeService.findAllTypes());
            return "/habits/create";
       }
 
@@ -28,9 +33,10 @@ public class CreateHabitController {
       public String processView(@Valid CreateHabitModel createHabitModel, BindingResult result){
             if(result.hasErrors()) {
              return "/habits/create"; }
+
             habitService.createHabit(createHabitModel);
 
-            return "";
+            return "redirect:/create-habit";
       }
 
 }

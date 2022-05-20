@@ -25,7 +25,7 @@ public class DefaultCategoryService implements CategoryService {
 
     @Override
     public Optional<Category> findCategoryByName(String name) {
-        return Optional.empty();
+        return categoryRepository.findByName(name);
     }
 
     @Override
