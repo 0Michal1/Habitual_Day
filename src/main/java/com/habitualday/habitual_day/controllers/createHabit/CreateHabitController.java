@@ -33,9 +33,7 @@ public class CreateHabitController {
       public String processView(@Valid CreateHabitModel createHabitModel, BindingResult result){
             if(result.hasErrors()) {
              return "/habits/create"; }
-
             habitService.createHabit(createHabitModel);
-
             return "redirect:/create-habit";
       }
 

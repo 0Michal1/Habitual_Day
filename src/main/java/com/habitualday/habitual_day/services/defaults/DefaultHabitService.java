@@ -35,20 +35,25 @@ public class DefaultHabitService implements HabitService {
 
     @Override
     public void createHabit(CreateHabitModel createHabitModel) {
+//      Do zrobienia: Sprawdzenie, czy nie ma już takiego nawyku w bazie
+
         List <Category> categories;
+//        Sprawdzenie, czy wybrał kategorię z listy
         if(createHabitModel.getCategories()!=null){
             categories =createHabitModel.getCategories();
         }else {
             categories = new ArrayList<>();
         }
-
+//      Sprawdzenie, czy wpisał nową kategorię
         if (createHabitModel.getCategoryName()!= null){
+//            Sprawdzenie, czy kategoria jest w bazie, a jak nie to jej utworzenie
             Category category = categoryRepository.findByName(createHabitModel.getCategoryName())
                     .orElseGet(()->categoryRepository.save(Category.builder()
                             .name(createHabitModel.getCategoryName())
                             .build()));
             categories.add(category);
         }
+//        Zapis nawyku
         habitRepository.save(Habit.builder()
                 .name(createHabitModel.getName())
                         .categories(categories)
