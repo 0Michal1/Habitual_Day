@@ -1,8 +1,8 @@
-package com.habitualday.habitual_day.controller.createHabit;
+package com.habitualday.habitual_day.controllers.createHabit;
 
-import com.habitualday.habitual_day.entity.Category;
+import com.habitualday.habitual_day.entities.Category;
 
-import com.habitualday.habitual_day.entity.Type;
+import com.habitualday.habitual_day.entities.Type;
 import lombok.*;
 import org.hibernate.validator.constraints.Length;
 
@@ -12,7 +12,6 @@ import javax.validation.constraints.NotNull;
 import java.util.List;
 @Getter
 @Setter
-@EqualsAndHashCode(of = "id")
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder @ToString
@@ -23,9 +22,7 @@ public class CreateHabitModel {
     private String description;
     @NotNull
     private Type type;
-
     private List<Category> categories;
-
     private String categoryName;
 
 

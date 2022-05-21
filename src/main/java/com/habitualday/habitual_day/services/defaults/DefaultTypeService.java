@@ -1,8 +1,8 @@
-package com.habitualday.habitual_day.service.defaults;
+package com.habitualday.habitual_day.services.defaults;
 
-import com.habitualday.habitual_day.entity.Type;
-import com.habitualday.habitual_day.repository.TypeRepository;
-import com.habitualday.habitual_day.service.intefaces.TypeService;
+import com.habitualday.habitual_day.entities.Type;
+import com.habitualday.habitual_day.repositories.TypeRepository;
+import com.habitualday.habitual_day.services.intefaces.TypeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

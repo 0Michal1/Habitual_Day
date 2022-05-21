@@ -1,4 +1,4 @@
-package com.habitualday.habitual_day.entity;
+package com.habitualday.habitual_day.entities;
 
 import lombok.*;
 

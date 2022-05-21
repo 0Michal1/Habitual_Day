@@ -1,7 +1,7 @@
-package com.habitualday.habitual_day.service.intefaces;
+package com.habitualday.habitual_day.services.intefaces;
 
 
-import com.habitualday.habitual_day.entity.Category;
+import com.habitualday.habitual_day.entities.Category;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

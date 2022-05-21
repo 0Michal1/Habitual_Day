@@ -1,8 +1,8 @@
-package com.habitualday.habitual_day.controller.createHabit;
+package com.habitualday.habitual_day.controllers.createHabit;
 
-import com.habitualday.habitual_day.service.intefaces.CategoryService;
-import com.habitualday.habitual_day.service.intefaces.HabitService;
-import com.habitualday.habitual_day.service.intefaces.TypeService;
+import com.habitualday.habitual_day.services.intefaces.CategoryService;
+import com.habitualday.habitual_day.services.intefaces.HabitService;
+import com.habitualday.habitual_day.services.intefaces.TypeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

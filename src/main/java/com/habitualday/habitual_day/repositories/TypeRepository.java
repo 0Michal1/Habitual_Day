@@ -1,6 +1,6 @@
-package com.habitualday.habitual_day.repository;
+package com.habitualday.habitual_day.repositories;
 
-import com.habitualday.habitual_day.entity.Type;
+import com.habitualday.habitual_day.entities.Type;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
