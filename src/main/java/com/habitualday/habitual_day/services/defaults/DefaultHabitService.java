@@ -55,7 +55,7 @@ public class DefaultHabitService implements HabitService {
         }
 //        Zapis nawyku
         habitRepository.save(Habit.builder()
-                .name(createHabitModel.getName())
+                        .name(createHabitModel.getName())
                         .categories(categories)
                         .type(createHabitModel.getType())
                         .description(createHabitModel.getDescription())

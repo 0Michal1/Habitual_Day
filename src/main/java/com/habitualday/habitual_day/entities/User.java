@@ -14,7 +14,7 @@ import javax.validation.constraints.NotBlank;
 @EqualsAndHashCode(of = "id")
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder @ToString
+@Builder @ToString(exclude = "password")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,5 +27,6 @@ public class User {
     @NotBlank
     private String email;
     private String password;
+    private String role;
 
 }
