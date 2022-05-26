@@ -34,7 +34,7 @@ public class CreateHabitController {
             if(result.hasErrors()) {
              return "/habits/create"; }
             habitService.createHabit(createHabitModel);
-            return "redirect:/create-habit";
+            return "redirect:/habits/list";
       }
 
 }

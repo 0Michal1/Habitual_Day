@@ -5,6 +5,7 @@ import lombok.*;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -29,7 +30,10 @@ public class MyHabit {
     List<LocalDateTime> streak;
     int maxStreak;
     @ElementCollection
-    Map <LocalDate, String> resolution;
+    Map <LocalDate, String> resolution = new HashMap<>();
 
 
+    public void setResolution(LocalDate now, String resolution) {
+       this.resolution.put(now, resolution);
+    }
 }

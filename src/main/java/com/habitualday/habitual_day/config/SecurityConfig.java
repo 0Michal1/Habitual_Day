@@ -45,7 +45,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //                        .defaultSuccessUrl("/homepage", true) // wymusza, że po zalogowaniu ZAWSZE trafia się na wskazaną stronę.
                         .and()
                 .logout()
-                        .logoutUrl("/habitualday")
+                        .logoutUrl("/logout")
                         .permitAll();
     }
 }

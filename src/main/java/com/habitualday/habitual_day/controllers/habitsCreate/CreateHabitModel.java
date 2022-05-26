@@ -18,7 +18,7 @@ import java.util.List;
 public class CreateHabitModel {
     @NotBlank @Length(min =3, max = 100)
     private String name;
-    @NotBlank
+    @NotBlank @Length(min =3, max = 200)
     private String description;
     @NotNull
     private Type type;
