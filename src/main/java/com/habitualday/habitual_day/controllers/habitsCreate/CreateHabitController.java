@@ -15,7 +15,7 @@ import javax.validation.Valid;
 
 @Controller
 @RequiredArgsConstructor
-@RequestMapping("/create-habit")
+@RequestMapping("/habits/create")
 public class CreateHabitController {
       private final HabitService habitService;
       private final CategoryService categoryService;

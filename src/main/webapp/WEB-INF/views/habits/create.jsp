@@ -14,7 +14,7 @@
     <title>Create Habit</title>
 </head>
 <body>
-<form:form action="/create-habit" method="post" modelAttribute="createHabitModel">
+<form:form action="/habits/create" method="post" modelAttribute="createHabitModel">
     <table border="2">
         <thead>
         <th>Nagłówek</th>
