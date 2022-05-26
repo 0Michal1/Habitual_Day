@@ -1,6 +1,6 @@
 package com.habitualday.habitual_day.services.defaults;
 
-import com.habitualday.habitual_day.controllers.createHabit.CreateHabitModel;
+import com.habitualday.habitual_day.controllers.habitsCreate.CreateHabitModel;
 import com.habitualday.habitual_day.entities.Category;
 import com.habitualday.habitual_day.entities.Habit;
 import com.habitualday.habitual_day.repositories.CategoryRepository;
@@ -39,15 +39,10 @@ public class DefaultHabitService implements HabitService {
     public void createHabit(CreateHabitModel createHabitModel) {
 //      Do zrobienia: Sprawdzenie, czy nie ma już takiego nawyku w bazie
 
-        List <Category> categories;
-//        Sprawdzenie, czy wybrał kategorię z listy
-        if(createHabitModel.getCategories()!=null){
-            categories =createHabitModel.getCategories();
-        }else {
-            categories = new ArrayList<>();
-        }
+        List <Category> categories = createHabitModel.getCategories();
+
 //      Sprawdzenie, czy wpisał nową kategorię
-        if (createHabitModel.getCategoryName()!= null){
+        if (createHabitModel.getCategoryName() != null){
 //            Sprawdzenie, czy kategoria jest w bazie, a jak nie to jej utworzenie
             Category category = categoryRepository.findByName(createHabitModel.getCategoryName())
                     .orElseGet(()->categoryRepository.save(Category.builder()

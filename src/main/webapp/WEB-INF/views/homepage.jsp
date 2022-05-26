@@ -14,12 +14,12 @@
     <title>Habitual Day</title>
 </head>
 <body>
-<a href="<c:out value="/create-habit"/>">Create New Habit</a>
-<a href="<c:out value="/login"/>">Login</a>
-<a href="<c:out value="/register"/>">Register</a>
-<a href="<c:out value="/myhabits"/>">My Habits</a>
-<a href="<c:out value="/habits/list"/>">List of Habits</a>
-
-
+<a href="<c:out value="/register"/>">Register</a></br>
+<a href="<c:out value="/login"/>">Login</a></br>
+<a href="<c:out value="/habits/list"/>">List of Habits</a></br>
+<a href="<c:out value="/habits/create"/>">Create New Habit</a></br>
+<a href="<c:out value="/myHabit/create"/>">Create My New Habit</a></br>
+<a href="<c:out value="/myHabit/list"/>">My Habits</a></br>
+<a href="<c:out value="/myHabit/streak"/>">My Habits</a></br>
 </body>
 </html>

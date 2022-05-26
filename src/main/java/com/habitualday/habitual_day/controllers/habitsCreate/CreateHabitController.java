@@ -1,4 +1,4 @@
-package com.habitualday.habitual_day.controllers.createHabit;
+package com.habitualday.habitual_day.controllers.habitsCreate;
 
 import com.habitualday.habitual_day.services.intefaces.CategoryService;
 import com.habitualday.habitual_day.services.intefaces.HabitService;

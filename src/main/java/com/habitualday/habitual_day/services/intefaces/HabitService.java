@@ -1,6 +1,6 @@
 package com.habitualday.habitual_day.services.intefaces;
 
-import com.habitualday.habitual_day.controllers.createHabit.CreateHabitModel;
+import com.habitualday.habitual_day.controllers.habitsCreate.CreateHabitModel;
 import com.habitualday.habitual_day.entities.Habit;
 import org.springframework.stereotype.Service;
 
