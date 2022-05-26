@@ -6,11 +6,13 @@ import com.habitualday.habitual_day.services.intefaces.CategoryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
 @RequiredArgsConstructor
 @Service
+@Transactional
 public class DefaultCategoryService implements CategoryService {
     private final CategoryRepository categoryRepository;
     @Override

@@ -6,6 +6,7 @@ import org.hibernate.validator.constraints.UniqueElements;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -28,5 +29,7 @@ public class User {
     private String email;
     private String password;
     private String role;
+    @OneToMany
+    private List<MyHabit> myHabits;
 
 }

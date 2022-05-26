@@ -9,11 +9,13 @@ import com.habitualday.habitual_day.services.intefaces.HabitService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 @Service
 @RequiredArgsConstructor
+@Transactional
 public class DefaultHabitService implements HabitService {
     private final HabitRepository habitRepository;
     private  final CategoryRepository categoryRepository;
