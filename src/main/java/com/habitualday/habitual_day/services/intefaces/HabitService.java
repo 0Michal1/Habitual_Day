@@ -1,6 +1,7 @@
 package com.habitualday.habitual_day.services.intefaces;
 
 import com.habitualday.habitual_day.controllers.habitsCreate.CreateHabitModel;
+import com.habitualday.habitual_day.controllers.habitsList.HabitsListModel;
 import com.habitualday.habitual_day.entities.Habit;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +16,7 @@ public interface HabitService {
     void createHabit(CreateHabitModel createHabitModel);
     void deleteHabitById(Long id);
     void editHabit(Habit habit);
+    List<HabitsListModel> findAllHabitsList();
 
 
 }

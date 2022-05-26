@@ -1,6 +1,7 @@
 package com.habitualday.habitual_day.services.defaults;
 
 import com.habitualday.habitual_day.controllers.habitsCreate.CreateHabitModel;
+import com.habitualday.habitual_day.controllers.habitsList.HabitsListModel;
 import com.habitualday.habitual_day.entities.Category;
 import com.habitualday.habitual_day.entities.Habit;
 import com.habitualday.habitual_day.repositories.CategoryRepository;
@@ -23,6 +24,22 @@ public class DefaultHabitService implements HabitService {
     @Override
     public List<Habit> findAllHabits() {
         return habitRepository.findAll();
+    }
+
+    public List<HabitsListModel> findAllHabitsList(){
+       List<Habit> habitList = habitRepository.findAll();
+       List<HabitsListModel> list = new ArrayList<>();
+       for (Habit habit : habitList) {
+           list.add(HabitsListModel.builder()
+                           .name(habit.getName())
+                           .categories(habit.getCategories())
+                           .description(habit.getDescription())
+                           .type(habit.getType())
+                           .userCounter(habit.getUserCounter())
+                           .id(habit.getId())
+                   .build());
+             }
+    return list;
     }
 
     @Override
