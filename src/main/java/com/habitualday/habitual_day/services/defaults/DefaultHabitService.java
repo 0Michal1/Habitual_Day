@@ -43,6 +43,11 @@ public class DefaultHabitService implements HabitService {
     }
 
     @Override
+    public String findHabitNameById(Long id) {
+        return habitRepository.findById(id).get().getName();
+    }
+
+    @Override
     public Optional<Habit> findHabitById(Long id) {
         return habitRepository.findById(id);
     }

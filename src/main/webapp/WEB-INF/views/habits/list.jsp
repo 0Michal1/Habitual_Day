@@ -21,7 +21,7 @@
     <th>Type</th>
     <th>Categories</th>
     <th>Popularity</th>
-    <th>action</th>
+    <th>Action</th>
     </thead>
     <tbody>
     <c:forEach items="${habits}" var="habit">

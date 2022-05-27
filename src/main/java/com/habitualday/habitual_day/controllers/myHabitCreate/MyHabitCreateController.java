@@ -1,6 +1,7 @@
 package com.habitualday.habitual_day.controllers.myHabitCreate;
 
 import com.habitualday.habitual_day.controllers.habitsCreate.CreateHabitModel;
+import com.habitualday.habitual_day.services.intefaces.HabitService;
 import com.habitualday.habitual_day.services.intefaces.MyHabitService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -18,6 +19,7 @@ import javax.validation.Valid;
 @RequestMapping("/myHabit/create")
 public class MyHabitCreateController {
     private final MyHabitService myHabitService;
+    private final HabitService habitService;
 
     @GetMapping
     public String prepareView(Model model){
@@ -26,8 +28,9 @@ public class MyHabitCreateController {
         return "/myHabit/create";
     }
     @GetMapping("/{id}")
-    public String prepareViewWithId(Model model, @PathVariable String id){
+    public String prepareViewWithId(Model model, @PathVariable Long id){
         model.addAttribute("createMyHabitModel", new MyHabitCreateModel());
+        model.addAttribute("habitName", habitService.findHabitNameById(id));
         model.addAttribute("habitId",id);
 
         return "/myHabit/create";

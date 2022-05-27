@@ -29,6 +29,7 @@ public class MyHabit {
     @ElementCollection
     List<LocalDateTime> streak;
     int maxStreak;
+    private int actualStreak;
     @ElementCollection
     Map <LocalDate, String> resolution = new HashMap<>();
 

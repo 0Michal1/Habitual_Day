@@ -17,6 +17,7 @@ public interface HabitService {
     void deleteHabitById(Long id);
     void editHabit(Habit habit);
     List<HabitsListModel> findAllHabitsList();
+    String findHabitNameById(Long id);
 
 
 }
