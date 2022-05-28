@@ -27,7 +27,7 @@ public class MyHabit {
     @ManyToOne
     User user;
     @ElementCollection
-    List<LocalDateTime> streak;
+    Map <LocalDate, String> streak = new HashMap<>();
     int maxStreak;
     private int actualStreak;
     @ElementCollection

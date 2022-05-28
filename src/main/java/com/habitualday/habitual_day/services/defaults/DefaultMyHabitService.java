@@ -51,6 +51,7 @@ public class DefaultMyHabitService implements MyHabitService {
         return myHabitRepository.findAllByUser_Username(username).stream()
                 .map(myHabit -> MyHabitListModel.builder()
                         .habitId(myHabit.getHabit().getId())
+                        .name(myHabit.getHabit().getName())
                         .categoriesNames(myHabit.getHabit().getCategories()
                                 .stream().map(Category::getName)
                                 .collect(Collectors.toList()))
