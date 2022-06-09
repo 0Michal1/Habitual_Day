@@ -23,7 +23,7 @@ public class MyHabitListModel {
     private List<String> categoriesNames;
     private Long habitId;
     private Long myHabitId;
-    private Map<LocalDate, String> resolution;
+    private String resolution;
     private int maxStreak;
     private int actualStreak;
 

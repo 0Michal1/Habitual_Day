@@ -18,7 +18,7 @@ public class MyHabitPanelModel {
     private List<String> categoriesNames;
     private Long habitId;
     private Long myHabitId;
-    private Map<LocalDate, String> resolution;
+    private String resolution;
     private int maxStreak;
     private int actualStreak;
     private Map <LocalDate, String> streak;

@@ -19,8 +19,9 @@ import javax.persistence.EntityNotFoundException;
 import javax.transaction.Transactional;
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
+import java.util.Map;
+import java.util.TreeMap;
 
 @Service
 @Transactional
@@ -63,7 +64,8 @@ public class DefaultMyHabitService implements MyHabitService {
                         .myHabitId(myHabit.getId())
                         .actualStreak(myHabit.getActualStreak())
                         .maxStreak(myHabit.getMaxStreak())
-                        .resolution(myHabit.getResolution())
+                        .resolution(myHabit.getResolution().get(myHabit.getResolution().keySet()
+                                .stream().max(LocalDate::compareTo).get()))
                         .build())
                 .collect(Collectors.toList());
     }
@@ -84,7 +86,8 @@ public class DefaultMyHabitService implements MyHabitService {
                         .myHabitId(myHabit.getId())
                         .actualStreak(myHabit.getActualStreak())
                         .maxStreak(myHabit.getMaxStreak())
-                        .resolution(myHabit.getResolution())
+                        .resolution(myHabit.getResolution().get(myHabit.getResolution().keySet()
+                                .stream().max(LocalDate::compareTo).get()))
                         .streak(myHabit.getStreak())
                         .build()).orElseThrow(EntityNotFoundException::new);
 
