@@ -2,6 +2,7 @@ package com.habitualday.habitual_day.services.defaults;
 
 import com.habitualday.habitual_day.controllers.myHabitCreate.MyHabitCreateModel;
 import com.habitualday.habitual_day.controllers.myHabitList.MyHabitListModel;
+import com.habitualday.habitual_day.controllers.myHabitPanel.MyHabitPanelModel;
 import com.habitualday.habitual_day.entities.Category;
 import com.habitualday.habitual_day.entities.Habit;
 import com.habitualday.habitual_day.entities.MyHabit;
@@ -14,9 +15,11 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.EntityNotFoundException;
 import javax.transaction.Transactional;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -63,6 +66,38 @@ public class DefaultMyHabitService implements MyHabitService {
                         .resolution(myHabit.getResolution())
                         .build())
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public MyHabitPanelModel findUserMyHabit(Long id) {
+        String username = SecurityContextHolder.getContext().getAuthentication().getName();
+
+        return  myHabitRepository.findByIdAndUser_Username(id, username)
+                .map(myHabit -> MyHabitPanelModel.builder()
+                        .habitId(myHabit.getHabit().getId())
+                        .name(myHabit.getHabit().getName())
+                        .categoriesNames(myHabit.getHabit().getCategories()
+                                .stream().map(Category::getName)
+                                .collect(Collectors.toList()))
+                        .typeName(myHabit.getHabit().getType().getName())
+                        .description(myHabit.getHabit().getDescription())
+                        .myHabitId(myHabit.getId())
+                        .actualStreak(myHabit.getActualStreak())
+                        .maxStreak(myHabit.getMaxStreak())
+                        .resolution(myHabit.getResolution())
+                        .streak(myHabit.getStreak())
+                        .build()).orElseThrow(EntityNotFoundException::new);
+
+    }
+
+    @Override
+    public void updateStreak(Long id) {
+        MyHabit myHabit = myHabitRepository.findById(id).orElseThrow(EntityNotFoundException::new);
+        myHabit.setStreak(LocalDate.now(), "done");
+        myHabit.setActualStreak(myHabit.getStreak().size());
+        if (myHabit.getActualStreak()> myHabit.getMaxStreak()){
+            myHabit.setMaxStreak(myHabit.getActualStreak());
+        }
     }
 
 }

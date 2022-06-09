@@ -64,7 +64,7 @@ public class DefaultHabitService implements HabitService {
         List <Category> categories = createHabitModel.getCategories();
 
 //      Sprawdzenie, czy wpisał nową kategorię
-        if (createHabitModel.getCategoryName() != null){
+        if (createHabitModel.getCategoryName() != null && !createHabitModel.getCategoryName().isEmpty()){
 //            Sprawdzenie, czy kategoria jest w bazie, a jak nie to jej utworzenie
             Category category = categoryRepository.findByName(createHabitModel.getCategoryName())
                     .orElseGet(()->categoryRepository.save(Category.builder()

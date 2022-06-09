@@ -1,4 +1,4 @@
-package com.habitualday.habitual_day.controllers.myHabitStreak;
+package com.habitualday.habitual_day.controllers.myHabitPanel;
 
 import com.habitualday.habitual_day.services.intefaces.MyHabitService;
 import lombok.RequiredArgsConstructor;
@@ -10,14 +10,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequiredArgsConstructor
-@RequestMapping("/myHabit/streak")
-public class MyHabitStreakController {
+@RequestMapping("/myHabit/panel")
+public class MyHabitPanelController {
 
     private final MyHabitService myHabitService;
+
     @GetMapping("/{id}")
-    public String prepareView(Model model, @PathVariable Long id){
-        myHabitService.findUserMyHabit(id);
-        myHabitService.updateStreak(id);
-        return "redirect:/habitualday";
+    public String prepareView(Model model,@PathVariable Long id){
+        model.addAttribute("myHabit", myHabitService.findUserMyHabit(id));
+        return "/myHabit/panel";
     }
 }

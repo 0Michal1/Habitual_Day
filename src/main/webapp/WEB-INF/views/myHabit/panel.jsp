@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: michal
-  Date: 26.05.2022
-  Time: 14:27
+  Date: 09.06.2022
+  Time: 11:44
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page isELIgnored="false" %>
@@ -11,7 +11,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>My Habits List</title>
+    <title>Title</title>
 </head>
 <body>
 <table border="2">
@@ -26,7 +26,6 @@
     <th>Action</th>
     </thead>
     <tbody>
-    <c:forEach items="${myHabits}" var="myHabit">
         <tr>
             <td><c:out value="${myHabit.name}"/></td>
             <td><c:out value="${myHabit.description}"/></td>
@@ -40,13 +39,12 @@
             <td><c:out value="${myHabit.actualStreak}"/></td>
             <td><c:out value="${myHabit.maxStreak}"/></td>
             <td>
-                <a href="<c:out value="/myHabit/panel/${myHabit.myHabitId}"/>">Panel</a>
+                <a href="<c:out value="/myHabit/streak/${myHabit.myHabitId}"/>">Streak</a>
             </td>
 
         </tr>
-    </c:forEach>
     </tbody>
 </table>
-
+<a href="<c:out value="/habitualday"/>">Homepage</a>
 </body>
 </html>

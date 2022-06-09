@@ -37,4 +37,5 @@ public class MyHabit {
     public void setResolution(LocalDate now, String resolution) {
        this.resolution.put(now, resolution);
     }
+    public void setStreak(LocalDate now, String status){this.streak.put(now, status);}
 }
