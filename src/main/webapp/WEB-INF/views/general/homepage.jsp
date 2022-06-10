@@ -17,9 +17,9 @@
 <a href="<c:out value="/register"/>">Register</a></br>
 <a href="<c:out value="/login"/>">Login</a></br>
 <a href="<c:out value="/habits/list"/>">List of Habits</a></br>
-<a href="<c:out value="/habits/create"/>">Create New Habit</a></br>
+<a href="<c:out value="/habits/list"/>">Create New Habit</a></br>
 <a href="<c:out value="/myHabit/create"/>">Create My New Habit</a></br>
 <a href="<c:out value="/myHabit/list"/>">My Habits</a></br>
-<a href="<c:out value="/myHabit/streak"/>">My Habits</a></br>
+
 </body>
 </html>
