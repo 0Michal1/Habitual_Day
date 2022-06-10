@@ -47,6 +47,6 @@
     </c:forEach>
     </tbody>
 </table>
-
+<a href="<c:out value="/habitualday"/>">Homepage</a>
 </body>
 </html>
