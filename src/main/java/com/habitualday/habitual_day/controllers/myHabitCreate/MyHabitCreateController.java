@@ -1,6 +1,7 @@
 package com.habitualday.habitual_day.controllers.myHabitCreate;
 
 import com.habitualday.habitual_day.controllers.habitsCreate.CreateHabitModel;
+import com.habitualday.habitual_day.controllers.habitsList.HabitsListModel;
 import com.habitualday.habitual_day.services.intefaces.HabitService;
 import com.habitualday.habitual_day.services.intefaces.MyHabitService;
 import lombok.RequiredArgsConstructor;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
@@ -23,9 +25,11 @@ public class MyHabitCreateController {
 
     @GetMapping
     public String prepareView(Model model){
+        List<HabitsListModel> habitsList = habitService.findAllHabitsList();
         model.addAttribute("createMyHabitModel", new MyHabitCreateModel());
+        model.addAttribute("habitsList", habitsList);
 
-        return "/myHabit/create";
+        return "/myHabit/createNew";
     }
     @GetMapping("/{id}")
     public String prepareViewWithId(Model model, @PathVariable Long id){

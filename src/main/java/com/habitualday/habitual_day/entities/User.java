@@ -21,10 +21,10 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotBlank
-//    @UniqueElements
+    @Column(unique = true)
     private String username;
     @Email
-//    @UniqueElements
+    @Column(unique = true)
     @NotBlank
     private String email;
     private String password;
