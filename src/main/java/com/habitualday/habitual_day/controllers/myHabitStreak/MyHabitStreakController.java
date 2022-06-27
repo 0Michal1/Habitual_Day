@@ -18,6 +18,6 @@ public class MyHabitStreakController {
     public String prepareView(Model model, @PathVariable Long id){
         myHabitService.findUserMyHabit(id);
         myHabitService.updateStreak(id);
-        return "redirect:/habitualday";
+        return "redirect:/myHabit/list";
     }
 }

@@ -18,12 +18,14 @@ import java.util.Map;
 public class MyHabitStreakCheck {
     private final MyHabitRepository myHabitRepository;
 
-    @Scheduled(cron = "0 0 0 * * *")
+    @Scheduled(cron = "1 0 0 * * *")
     public void myHabitStreakCheck(){
         List<MyHabit> allUsersMyHabits = myHabitRepository.findAll();
         for (MyHabit myHabit : allUsersMyHabits) {
             Map<LocalDate, String> streak = myHabit.getStreak();
-        if(!streak.containsKey(LocalDate.now().minusDays(1))) myHabit.setStreak(new HashMap<>());
+        if(!streak.containsKey(LocalDate.now().minusDays(1))) {myHabit.setStreak(new HashMap<>());
+        myHabit.setActualStreak(0);}
+
         }
 
     }
